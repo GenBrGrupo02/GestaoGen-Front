@@ -1,6 +1,16 @@
+import Consulta from "./Consulta";
+import Usuario from "./Usuario";
 
 export default interface Cliente {
-    id: number;
+    id?: number;
+    nome: string;
     descricao: string;
+    genero: string;
+    idade: number;
+    telefone: string;
+    cpf: string;
+    email: string;
+    status: boolean;
     consulta?: Consulta | null;
+    usuario?: Usuario | null;
 }

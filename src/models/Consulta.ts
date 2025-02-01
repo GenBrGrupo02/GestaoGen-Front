@@ -1,11 +1,8 @@
 import Cliente from "./Cliente";
 
-
 export default interface Consulta {
-  id: number;
-  titulo: string;
-  texto: string;
-  data: string;
-  cliente: Cliente | null;
-  usuario: Usuario | null;
+  id?: number;
+  nome: string;
+  descricao: string;
+  cliente?: Cliente | null;
 }
