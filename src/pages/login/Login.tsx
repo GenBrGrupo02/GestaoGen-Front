@@ -81,7 +81,7 @@ function Login() {
                     </button>
 
                     <hr className="border-slate-800 w-full" />
-                    
+
                 </form>
                 <div className="fundoLogin hidden lg:block"></div>
             </div>

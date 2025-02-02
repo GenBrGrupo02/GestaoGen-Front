@@ -1,66 +1,68 @@
-// import { useContext, useEffect, useState } from "react";
-// import { useNavigate } from "react-router-dom";
-// import Cliente from "../../../models/Cliente";
-// import CardClientes from "../../cliente/cardclientes/CardClientes";
-// import { buscar } from "../../../service/Service";
+import { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Consulta from "../../../models/Consulta";
+import CardConsultas from "../../consulta/cardconsultas/CardConsultas";
+import { DNA } from "react-loader-spinner";
+import { AuthContext } from "../../../contexts/AuthContext";
+import { buscar } from "../../../services/Service";
 
-// function ListaClientes() {
+function ListaConsultas() {
 
-//     const navigate = useNavigate();
+    const navigate = useNavigate();
 
-//     const [clientes, setClientes] = useState<Cliente[]>([]);
+    const [consultas, setConsultas] = useState<Consulta[]>([]);
 
-//     const { usuario, handleLogout } = useContext(AuthContext);
-//     const token = usuario.token;
+    const { usuario, handleLogout } = useContext(AuthContext);
+    const token = usuario.token;
 
-//     async function buscarClientes() {
-//         try {
-//             await buscar('/clientes', setClientes, {
-//                 headers: {
-//                     Authorization: token,
-//                 },
-//             })
+    async function buscarConsultas() {
+        try {
+            await buscar('/consulta', setConsultas, {
+                headers: {
+                    Authorization: token,
+                },
+            })
 
-//         } catch (error: any) {
-//             if (error.toString().includes('403')) {
-//                 handleLogout()
-//             }
-//         }
-//     }
+        } catch (error: any) {
+            if (error.toString().includes('403')) {
+                handleLogout()
+            }
+        }
+    }
 
-//     useEffect(() => {
-//         if (token === '') {
-//             alert("Você precisa estar logado")
-//             navigate('/');
-//         }
-//     }, [token])
+    useEffect(() => {
+        if (token === '') {
+            alert("Você precisa estar logado")
+            navigate('/');
+        }
+    }, [token])
 
-//     useEffect(() => {
-//         buscarClientes()
-//     }, [clientes.length])
+    useEffect(() => {
+        buscarConsultas()
+    }, [consultas.length])
 
-//     return (
-//         <>
-//             {clientes.length === 0 && (
-//                 <DNA
-//                     visible={true}
-//                     height="200"
-//                     width="200"
-//                     ariaLabel="dna-loading"
-//                     wrapperStyle={{}}
-//                     wrapperClass="dna-wrapper mx-auto"
-//                 />
-//             )}
-//             <div className='container mx-auto my-4 
-//                 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'
-//             >
-//                 {clientes.map((cliente) => (
-//                     <CardClientes key={cliente.id} cliente={cliente} />
-//                 ))}
+    return (
+        <>
+            {consultas.length === 0 && (
+                <DNA
+                    visible={true}
+                    height="200"
+                    width="200"
+                    ariaLabel="dna-loading"
+                    wrapperStyle={{}}
+                    wrapperClass="dna-wrapper mx-auto"
+                />
+            )}
+            <div className='container mx-auto my-4 
+                 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'
+            >
+                {consultas.map((consulta) => (
+                    <CardConsultas key={consulta.id} consulta={consulta} />
+                ))}
 
-//             </div>
-//         </>
-//     );
-// }
+            </div>
+        </>
+    );
+}
 
-// export default ListaClientes;
+export default ListaConsultas;

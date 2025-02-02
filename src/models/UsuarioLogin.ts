@@ -4,6 +4,6 @@ export default interface UsuarioLogin {
     usuario: string;
     senha: string;
     foto: string;
-    //pode ser necessário adicionar "tipo" aqui e no back, confirmar com Geandro
     token: string;
+    //pode ser necessário adicionar "tipo" aqui e no back, confirmar com Geandro
 }

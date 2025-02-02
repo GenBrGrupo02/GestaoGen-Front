@@ -4,7 +4,6 @@ import Usuario from "./Usuario";
 export default interface Cliente {
     id?: number;
     nome: string;
-    descricao: string;
     genero: string;
     idade: number;
     telefone: string;

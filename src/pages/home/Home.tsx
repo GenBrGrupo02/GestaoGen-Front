@@ -1,4 +1,12 @@
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/AuthContext";
+
 function Home() {
+
+    const { usuario } = useContext(AuthContext);
+
+    console.log(usuario.token)
+
     return (
         <>
             <div style={{

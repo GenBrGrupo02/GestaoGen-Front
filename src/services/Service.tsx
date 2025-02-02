@@ -1,4 +1,5 @@
 import axios from "axios"
+import Usuario from "../models/Usuario"
 
 const api =axios.create({
     baseURL: 'https://gestaogen-back.onrender.com/'
@@ -31,4 +32,9 @@ export const atualizar = async (url: string, dados: Object, setDados: Function, 
 
 export const deletar = async (url: string, header: Object) => {
     await api.delete(url, header)
+}
+
+export const getUser = async (id: number, header: Object) => {
+    const response = await api.get<Usuario>(`/usuarios/${id}`, header);
+    return response;
 }
