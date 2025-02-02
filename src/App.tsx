@@ -9,6 +9,7 @@ import Dashboard from "./pages/dashboard/Dashboard";
 import Clientes from "./pages/clientes/Clientes";
 import Consultas from "./pages/Consultas/Consultas";
 import Sobre from "./pages/sobre/Sobre";
+import FormConsulta from "./components/consulta/formconsulta/FormConsulta";
 
 function App() {
 
@@ -26,6 +27,8 @@ function App() {
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/clientes" element={<Clientes />} />
               <Route path="/consultas" element={<Consultas />} />
+              <Route path="/consultas/form" element={<FormConsulta />} />
+              <Route path="/consultas/form/:id" element={<FormConsulta />} />
               <Route path="/sobre" element={<Sobre />} />
             </Routes>
           </div>
