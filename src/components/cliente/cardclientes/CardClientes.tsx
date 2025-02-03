@@ -16,11 +16,12 @@ export default function ClienteCard({ cliente }: ClienteCardProps) {
 
   const alterarStatus = async () => {
     try {
-      await atualizar(`/clientes/${cliente.id}`, {}, () => {}, {
+      const novoStatus = !status;
+
+      await atualizar(`/clientes/${cliente.id}`, { status: novoStatus }, () => {}, {
         headers: { Authorization: token },
       });
-
-      setStatus((prevStatus) => !prevStatus);
+      setStatus(novoStatus);
       alert(`Status do cliente ${cliente.nome} alterado com sucesso!`);
     } catch (error: any) {
       if (error.toString().includes('403')) {
