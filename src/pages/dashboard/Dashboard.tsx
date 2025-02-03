@@ -22,73 +22,65 @@ function Dashboard() {
 
   return (
     <>
-      <div className="lg:flex lg:items-center lg:justify-between">
-        <div className="min-w-screen flex-1 m-12">
-          <h2 className=" text-2xl/7 font-bold text-yellow-500 sm:truncate sm:text-3xl sm:tracking-tight mb-12">
-            DASHBOARD DO MÉDICO
+      <div className="bg-base-100 lg:flex lg:items-center lg:justify-between">
+        <div className="bg-base-100 min-w-screen flex-1 m-12 flex flex-col items-center text-center">
+          <h2 className="font-title text-4xl font-bold text-primary sm:truncate sm:text-5xl sm:tracking-tight mb-12">
+            Dashboard de {usuario.nome}
           </h2>
-          <h2 className=" text-2xl/7 font-bold text-secondary sm:truncate sm:text-3xl sm:tracking-tight mb-2">
+          <h2 className="font-body text-xl font-bold text-secondary sm:truncate sm:text-2xl sm:tracking-tight mb-2">
             Bem vinde de volta!
           </h2>
           <div className="mt-1 flex flex-col sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6 mb-8">
-            <div className="mt-2 flex items-center text-sm text-neutral-content">
+            <div className="font-body mt-2 flex items-center text-sm text-base-content">
               <MapPin size={20} weight="fill" className="mr-1.5" />
               Clínica Gen - Rua Geração Brasil, 1500
             </div>
           </div>
-        
-        <div className="mt-5 flex lg:mt-0 lg:ml-4 mr-12">
-          <Link to="/clientes">
-            <span className="hidden sm:block">
+
+          <div className="bg-base-100 mt-5 flex items-center justify-center space-x-3">
+            <Link to="/clientes">
               <button
                 type="button"
-                className="mr-1.5 px-3.5 py-2.5 inline-flex items-center rounded-md  bg-yellow-500
-                text-sm font-semibold text-gray-900 shadow-xs ring-inset hover:bg-yellow-200 text-white"
+                className="bg-primary px-3.5 py-2.5 inline-flex items-center rounded-md 
+            text-sm font-semibold text-black shadow-xs ring-inset hover:bg-accent"
               >
                 <AddressBookTabs size={20} weight="fill" className="mr-1.5" />
                 Clientes
               </button>
-            </span>
-          </Link>
-          <span className="sm:ml-3 text-white">
+            </Link>
             <Link to="/consultas">
-              <span className="hidden sm:block">
-                <button
-                  type="button"
-                  className="mr-1.5 px-3.5 py-2.5 inline-flex items-center rounded-md  bg-info
-                text-sm font-semibold text-gray-900 shadow-xs ring-inset hover:bg-success"
-                >
-                  <CalendarDots size={20} weight="fill" className="mr-1.5" />
-                  Consultas
-                </button>
-              </span>
+              <button
+                type="button"
+                className="bg-primary px-3.5 py-2.5 inline-flex items-center rounded-md
+            text-sm font-semibold text-gray-900 shadow-xs ring-inset hover:bg-accent"
+              >
+                <CalendarDots size={20} weight="fill" className="mr-1.5" />
+                Consultas
+              </button>
             </Link>
-          </span>
-          <span className="sm:ml-3">
             <Link to="/cadastro">
-              <span className="hidden sm:block">
-                <button
-                  type="button"
-                  className="mr-1.5 px-3.5 py-2.5 inline-flex items-center rounded-md  bg-info
-                text-sm font-semibold text-gray-900 shadow-xs ring-inset hover:bg-success"
-                >
-                  <UserPlus size={20} weight="fill" className="mr-1.5" />
-                  Cadastro de Usuarios
-                </button>
-              </span>
+              <button
+                type="button"
+                className="bg-primary px-3.5 py-2.5 inline-flex items-center rounded-md
+            text-sm font-semibold text-gray-900 shadow-xs ring-inset hover:bg-accent"
+              >
+                <UserPlus size={20} weight="fill" className="mr-1.5" />
+                Cadastro de Usuários
+              </button>
             </Link>
-          </span>
+          </div>
         </div>
-        </div>
-        <div className="flex justify-center ">
+
+        {/* <div className="min-w-screen flex-1 flex justify-center hidden:sm-flex">
           <img
             src="https://i.imgur.com/esdZJ70.jpg"
-            alt="Imagem Página Dashboard"
-            className='w-auto'
+            alt="Imagem da Página Home"
+            className="w-auto h-[50vh]"
           />
-        </div>
+        </div> */}
       </div>
     </>
+
   );
 }
 

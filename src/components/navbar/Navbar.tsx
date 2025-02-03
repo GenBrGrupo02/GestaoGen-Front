@@ -25,6 +25,8 @@ function Navbar() {
                     {usuario.token ? (
                         <>
                             <li><Link to="/dashboard" className="hover:text-gray-300">Dashboard</Link></li>
+                            <li><Link to="/clientes">Clientes</Link></li>
+                            <li><Link to="/consultas">Consultas</Link></li>
                             <li>
                                 <button onClick={logout} className="btn btn-error text-white">
                                     Sair
@@ -48,6 +50,7 @@ function Navbar() {
                     {usuario.token ? (
                         <>
                             <li><Link to="/dashboard">Dashboard</Link></li>
+                            
                             <li>
                                 <button onClick={logout} className="btn btn-error text-white w-full">Sair</button>
                             </li>

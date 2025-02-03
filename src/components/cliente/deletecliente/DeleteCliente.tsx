@@ -1,22 +1,18 @@
-import { useState, useContext, useEffect } from "react"
-import { useNavigate, useParams } from "react-router-dom"
-import { AuthContext } from "../../../contexts/AuthContext"
-import Cliente from "../../../models/Cliente"
-import { buscar, deletar } from "../../../services/Service"
-import { RotatingLines } from "react-loader-spinner"
-
+import { useState, useContext, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { AuthContext } from "../../../contexts/AuthContext";
+import Cliente from "../../../models/Cliente";
+import { buscar, deletar } from "../../../services/Service";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { ThumbsUp, XCircle } from "@phosphor-icons/react";
 
 function DeletarCliente() {
-
-    const navigate = useNavigate()
-
-    const [isLoading, setIsLoading] = useState<boolean>(false)
-    const [cliente, setCliente] = useState<Cliente>({} as Cliente)
-
-    const { id } = useParams<{ id: string }>()
-
-    const { usuario, handleLogout } = useContext(AuthContext)
-    const token = usuario.token
+    const navigate = useNavigate();
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+    const [cliente, setCliente] = useState<Cliente>({} as Cliente);
+    const { id } = useParams<{ id: string }>();
+    const { usuario, handleLogout } = useContext(AuthContext);
+    const token = usuario.token;
 
     async function buscarPorId(id: string) {
         try {
@@ -24,98 +20,93 @@ function DeletarCliente() {
                 headers: {
                     'Authorization': token
                 }
-            })
+            });
         } catch (error: any) {
             if (error.toString().includes('403')) {
-                handleLogout()
+                handleLogout();
             }
         }
     }
 
     useEffect(() => {
         if (token === '') {
-            alert("Você precisa estar logado")
-            navigate('/')
+            alert("Você precisa estar logado");
+            navigate('/');
         }
-    }, [token])
+    }, [token]);
 
     useEffect(() => {
         if (id !== undefined) {
-            buscarPorId(id)
+            buscarPorId(id);
         }
-    }, [id])
+    }, [id]);
 
     async function deletarCliente() {
-        setIsLoading(true)
-
+        setIsLoading(true);
         try {
             await deletar(`/clientes/${id}`, {
                 headers: {
                     'Authorization': token
                 }
-            })
-
-            alert("Cliente apagada com sucesso!")
-
+            });
+            alert("Cliente apagado com sucesso!");
         } catch (error: any) {
             if (error.toString().includes('403')) {
-                handleLogout()
-            }else {
-                alert("Erro ao deletar a cliente.")
+                handleLogout();
+            } else {
+                alert("Erro ao deletar o cliente.");
             }
         }
-
-        setIsLoading(false)
-        retornar()
+        setIsLoading(false);
+        retornar();
     }
 
     function retornar() {
-        navigate("/clientes")
+        navigate("/clientes");
     }
-    
+
     return (
-        <div className='container w-1/3 mx-auto'>
-            <h1 className='text-4xl text-center my-4'>Deletar Cliente</h1>
-
-            <p className='text-center font-semibold mb-4'>
-                Você tem certeza de que deseja apagar a cliente a seguir?
-            </p>
-
-            <div className='border flex flex-col rounded-2xl overflow-hidden justify-between'>
-                <header 
-                    className='py-2 px-6 bg-amber-700 text-white font-bold text-2xl'>
-                    Postclienteagem
-                </header>
-                <div className="p-4">
-                    <p className='text-xl h-full'>{cliente.nome}</p>
-                    <p>{cliente.genero}</p>
-                </div>
-                <div className="flex">
-                    <button 
-                        className='text-slate-100 bg-red-600 hover:bg-red-800 w-full py-2'
-                        onClick={retornar}>
-                        Não
-                    </button>
-                    <button 
-                        className='w-full text-slate-100 bg-amber-700 
-                        hover:bg-amber-950 flex items-center justify-center'
-                        onClick={deletarCliente}>
-                        
-                        {isLoading ?
-                            <RotatingLines
-                                strokeColor="white"
-                                strokeWidth="5"
-                                animationDuration="0.75"
-                                width="24"
-                                visible={true}
-                            /> :
-                            <span>Sim</span>
-                        }
-                    </button>
-                </div>
+        <div className="flex justify-center items-center min-h-screen p-4">
+            <div className="w-full max-w-md">
+                <h1 className='font-body text-4xl text-center my-4'>Deletar Cliente</h1>
+                <p className='font-base text-center font-semibold mb-4'>
+                    Você tem certeza de que deseja apagar o cliente a seguir?
+                </p>
+                <Card className="shadow-lg border border-gray-300 rounded-lg">
+                    <CardHeader>
+                        <CardTitle className="text-xl font-bold text-base-content flex justify-between">
+                            {cliente.nome}
+                        </CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-2 p-4">
+                        <p className="text-base-content"><strong>Gênero:</strong> {cliente.genero}</p>
+                        <p className="text-base-content"><strong>Idade:</strong> {cliente.idade} anos</p>
+                        <p className="text-base-content"><strong>Email:</strong> {cliente.email}</p>
+                        <p className="text-base-content"><strong>Telefone:</strong> {cliente.telefone}</p>
+                        <p className="text-base-content"><strong>CPF:</strong> {cliente.cpf}</p>
+                        <div className="flex space-x-2">
+                            <button
+                                className='px-3 py-2 flex items-center rounded-md bg-info text-sm font-semibold text-base-content shadow-xs hover:bg-neutral'
+                                onClick={retornar}>
+                                <XCircle size={20} weight="fill" className="mr-1.5" />
+                                Não
+                            </button>
+                            <button
+                                className="px-3 py-2 flex items-center rounded-md bg-warning text-sm font-semibold text-base-content shadow-xs hover:bg-error"
+                                onClick={deletarCliente}>
+                                <ThumbsUp size={20} className="mr-1.5" />
+                                {isLoading ?
+                                    <span className="loading loading-bars loading-md"></span>
+                                    :
+                                    <span>Sim</span>
+                                }
+                            </button>
+                        </div>
+                    </CardContent>
+                </Card>
             </div>
         </div>
-    )
+    );
 }
 
-export default DeletarCliente
+export default DeletarCliente;
