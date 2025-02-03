@@ -16,24 +16,30 @@ export default function ClienteCard({ cliente }: ClienteCardProps) {
   const { usuario, handleLogout } = useContext(AuthContext);
   const token = usuario.token;
 
-  const [status, setStatus] = useState(cliente.status);
-  const [editando, setEditando] = useState(false);
   const [dadosPaciente, setDadosPaciente] = useState({
+    id: cliente.id,
     nome: cliente.nome,
     idade: cliente.idade,
     email: cliente.email,
     telefone: cliente.telefone,
+    genero: cliente.genero,
+    cpf: cliente.cpf,
+    status: cliente.status,
+    consulta: cliente.consulta
   });
+  const [status, setStatus] = useState(dadosPaciente.status);
+  const [editando, setEditando] = useState(false);
+  
 
   const alterarStatus = async () => {
     try {
       const novoStatus = !status;
 
-      await atualizar(`/clientes/${cliente.id}`, { status: novoStatus }, () => { }, {
+      await atualizar(`/clientes/${dadosPaciente.id}`, { status: novoStatus }, () => { }, {
         headers: { Authorization: token },
       });
       setStatus(novoStatus);
-      alert(`Status do cliente ${cliente.nome} alterado com sucesso!`);
+      alert(`Status do cliente ${dadosPaciente.nome} alterado com sucesso!`);
     } catch (error: any) {
       if (error.toString().includes('403')) {
         handleLogout();
@@ -49,7 +55,7 @@ export default function ClienteCard({ cliente }: ClienteCardProps) {
 
   const editarPaciente = async () => {
     try {
-      await atualizar(`/clientes/${cliente.id}`, dadosPaciente, () => {}, {
+      await atualizar(`/clientes`, dadosPaciente, () => { }, {
         headers: { Authorization: token },
       });
       alert(`Paciente ${dadosPaciente.nome} atualizado com sucesso!`);
@@ -67,10 +73,10 @@ export default function ClienteCard({ cliente }: ClienteCardProps) {
     <Card className="w-full max-w-md shadow-lg border border-gray-300 rounded-lg">
       <CardHeader>
         <CardTitle className="text-xl font-bold text-indigo-700 flex justify-between">
-          {cliente.nome}
+          {dadosPaciente.nome}
 
           <div className="flex space-x-2">
-            <button 
+            <button
               onClick={() => setEditando(true)}
               className="px-3 py-2 flex items-center rounded-md bg-info text-sm font-semibold text-gray-900 shadow-xs hover:bg-success"
             >
@@ -88,18 +94,18 @@ export default function ClienteCard({ cliente }: ClienteCardProps) {
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-2">
-        <p className="text-gray-700"><strong>Gênero:</strong> {cliente.genero}</p>
-        <p className="text-gray-700"><strong>Idade:</strong> {cliente.idade} anos</p>
-        <p className="text-gray-700"><strong>Email:</strong> {cliente.email}</p>
-        <p className="text-gray-700"><strong>Telefone:</strong> {cliente.telefone}</p>
-        <p className="text-gray-700"><strong>CPF:</strong> {cliente.cpf}</p>
+        <p className="text-gray-700"><strong>Gênero:</strong> {dadosPaciente.genero}</p>
+        <p className="text-gray-700"><strong>Idade:</strong> {dadosPaciente.idade} anos</p>
+        <p className="text-gray-700"><strong>Email:</strong> {dadosPaciente.email}</p>
+        <p className="text-gray-700"><strong>Telefone:</strong> {dadosPaciente.telefone}</p>
+        <p className="text-gray-700"><strong>CPF:</strong> {dadosPaciente.cpf}</p>
         <p className="text-gray-700">
-          <strong>Status:</strong> 
+          <strong>Status:</strong>
           <span className={status ? "text-green-600" : "text-red-600"}>
-            {status ? "Ativo" : "Inativo"}
+            {status ? " Ativo" : " Inativo"}
           </span>
         </p>
-        
+
         <button
           onClick={alterarStatus}
           className="w-full mt-4 bg-primary hover:bg-secondary text-white font-semibold py-2 rounded-md transition"
@@ -128,14 +134,18 @@ export default function ClienteCard({ cliente }: ClienteCardProps) {
             </div>
 
             <div className="space-y-4 mt-4">
-              <input type="text" name="nome" value={dadosPaciente.nome} onChange={handleChange} placeholder="Nome" 
-              className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white text-black"/>
-              <input type="number" name="idade" value={dadosPaciente.idade} onChange={handleChange} placeholder="Idade" 
-              className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white text-black"/>
-              <input type="email" name="email" value={dadosPaciente.email} onChange={handleChange} placeholder="E-mail" 
-              className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white text-black"/>
-              <input type="text" name="telefone" value={dadosPaciente.telefone} onChange={handleChange} placeholder="Telefone" 
-              className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white text-black"/>
+              <input type="text" name="nome" value={dadosPaciente.nome} onChange={handleChange} placeholder="Nome"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white text-black" />
+              <input type="number" name="idade" value={dadosPaciente.idade} onChange={handleChange} placeholder="Idade"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white text-black" />
+              <input type="email" name="email" value={dadosPaciente.email} onChange={handleChange} placeholder="E-mail"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white text-black" />
+              <input type="text" name="telefone" value={dadosPaciente.telefone} onChange={handleChange} placeholder="Telefone"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white text-black" />
+              <input type="text" name="genero" value={dadosPaciente.genero} onChange={handleChange} placeholder="Gênero"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white text-black" />
+              <input type="text" name="cpf" value={dadosPaciente.cpf} onChange={handleChange} placeholder="CPF"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white text-black" />
 
               <Button onClick={editarPaciente} className="w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-2 rounded-md transition">
                 Salvar Alterações

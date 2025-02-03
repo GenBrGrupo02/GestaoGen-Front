@@ -6,7 +6,7 @@ function Clientes() {
     return (
         <>
             <div className="mt-5 flex lg:mt-10 lg:ml-4 mr-12">
-                <Link to="/clientes">
+                <Link to="/clientes/form">
                     <span className="hidden sm:block">
                         <button
                             type="button"
