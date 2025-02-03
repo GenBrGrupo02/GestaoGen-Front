@@ -2,22 +2,23 @@ import { Link, useNavigate } from "react-router-dom";
 import {
   AddressBookTabs,
   CalendarDots,
-  MapPin
+  MapPin,
+  UserPlus
 } from "@phosphor-icons/react";
-import { useContext, useEffect} from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
 
 function Dashboard() {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const { usuario } = useContext(AuthContext);
-  
-    useEffect(() => {
-      if (usuario.token === "") {
-        alert("Você precisa estar logado");
-        navigate("/");
-      }
-    }, [usuario.token]);
+  const { usuario } = useContext(AuthContext);
+
+  useEffect(() => {
+    if (usuario.token === "") {
+      alert("Você precisa estar logado");
+      navigate("/");
+    }
+  }, [usuario.token]);
 
   return (
     <>
@@ -35,21 +36,21 @@ function Dashboard() {
               Clínica Gen - Rua Geração Brasil, 1500
             </div>
           </div>
-        </div>
+        
         <div className="mt-5 flex lg:mt-0 lg:ml-4 mr-12">
           <Link to="/clientes">
             <span className="hidden sm:block">
               <button
                 type="button"
                 className="mr-1.5 px-3.5 py-2.5 inline-flex items-center rounded-md  bg-yellow-500
-                text-sm font-semibold text-gray-900 shadow-xs ring-inset hover:bg-yellow-200"
+                text-sm font-semibold text-gray-900 shadow-xs ring-inset hover:bg-yellow-200 text-white"
               >
                 <AddressBookTabs size={20} weight="fill" className="mr-1.5" />
                 Clientes
               </button>
             </span>
           </Link>
-          <span className="sm:ml-3">
+          <span className="sm:ml-3 text-white">
             <Link to="/consultas">
               <span className="hidden sm:block">
                 <button
@@ -63,6 +64,28 @@ function Dashboard() {
               </span>
             </Link>
           </span>
+          <span className="sm:ml-3">
+            <Link to="/cadastro">
+              <span className="hidden sm:block">
+                <button
+                  type="button"
+                  className="mr-1.5 px-3.5 py-2.5 inline-flex items-center rounded-md  bg-info
+                text-sm font-semibold text-gray-900 shadow-xs ring-inset hover:bg-success"
+                >
+                  <UserPlus size={20} weight="fill" className="mr-1.5" />
+                  Cadastro de Usuarios
+                </button>
+              </span>
+            </Link>
+          </span>
+        </div>
+        </div>
+        <div className="flex justify-center ">
+          <img
+            src="https://i.imgur.com/esdZJ70.jpg"
+            alt="Imagem Página Dashboard"
+            className='w-auto'
+          />
         </div>
       </div>
     </>
