@@ -3,84 +3,76 @@ import {
   AddressBookTabs,
   CalendarDots,
   MapPin,
-  UserPlus
+  UserPlus,
 } from "@phosphor-icons/react";
 import { useContext, useEffect } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
+import "./Dashboard.css"; // ✅ Importação do CSS corrigida
 
 function Dashboard() {
   const navigate = useNavigate();
-
   const { usuario } = useContext(AuthContext);
 
   useEffect(() => {
-    if (usuario.token === "") {
+    if (!usuario?.token) {
       alert("Você precisa estar logado");
       navigate("/");
     }
-  }, [usuario.token]);
+  }, [usuario?.token, navigate]);
 
   return (
-    <>
-      <div className="bg-base-100 lg:flex lg:items-center lg:justify-between">
-        <div className="bg-base-100 min-w-screen flex-1 m-12 flex flex-col items-center text-center">
-          <h2 className="font-title text-4xl font-bold text-primary sm:truncate sm:text-5xl sm:tracking-tight mb-12">
-            Dashboard de {usuario.nome}
-          </h2>
-          <h2 className="font-body text-xl font-bold text-secondary sm:truncate sm:text-2xl sm:tracking-tight mb-2">
-            Bem vinde de volta!
-          </h2>
-          <div className="mt-1 flex flex-col sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6 mb-8">
-            <div className="font-body mt-2 flex items-center text-sm text-base-content">
-              <MapPin size={20} weight="fill" className="mr-1.5" />
-              Clínica Gen - Rua Geração Brasil, 1500
-            </div>
+    <div className="fundodash flex flex-col lg:flex-row-reverse items-center justify-between min-h-screen p-8">
+      
+      {/* Esquerda - Texto e Grade */}
+      <div className="lg:w-1/2 flex flex-col justify-center text-left">
+        
+        {/* Título */}
+        <h2 className="text-3xl font-bold text-yellow-500 mb-4">
+          DASHBOARD DO MÉDICO
+        </h2>
+        <h2 className="text-2xl font-semibold text-gray-700">
+          Bem-vindo de volta!
+        </h2>
+
+        {/* Grade para Botões e Localização */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
+          
+          {/* Botão Clientes */}
+          <Link to="/clientes">
+            <button className="flex items-center px-4 py-2 bg-yellow-500 text-white text-sm font-semibold rounded-lg shadow-md hover:bg-yellow-600 transition">
+              <AddressBookTabs size={20} weight="fill" className="mr-2" />
+              Clientes
+            </button>
+          </Link>
+
+          {/* Botão Consultas */}
+          <Link to="/consultas">
+            <button className="flex items-center px-4 py-2 bg-blue-500 text-white text-sm font-semibold rounded-lg shadow-md hover:bg-blue-600 transition">
+              <CalendarDots size={20} weight="fill" className="mr-2" />
+              Consultas
+            </button>
+          </Link>
+
+          {/* Botão Cadastro */}
+          <Link to="/cadastro">
+            <button className="flex items-center px-4 py-2 bg-green-500 text-white text-sm font-semibold rounded-lg shadow-md hover:bg-green-600 transition">
+              <UserPlus size={20} weight="fill" className="mr-2" />
+              Cadastro de Usuários
+            </button>
+          </Link>
+
+          {/* Localização */}
+          <div className="flex items-center text-gray-600">
+            <MapPin size={20} weight="fill" className="mr-2 text-blue-500" />
+            Clínica Gen - Rua Geração Brasil, 1500
           </div>
 
-          <div className="bg-base-100 mt-5 flex items-center justify-center space-x-3">
-            <Link to="/clientes">
-              <button
-                type="button"
-                className="bg-primary px-3.5 py-2.5 inline-flex items-center rounded-md 
-            text-sm font-semibold text-black shadow-xs ring-inset hover:bg-accent"
-              >
-                <AddressBookTabs size={20} weight="fill" className="mr-1.5" />
-                Clientes
-              </button>
-            </Link>
-            <Link to="/consultas">
-              <button
-                type="button"
-                className="bg-primary px-3.5 py-2.5 inline-flex items-center rounded-md
-            text-sm font-semibold text-gray-900 shadow-xs ring-inset hover:bg-accent"
-              >
-                <CalendarDots size={20} weight="fill" className="mr-1.5" />
-                Consultas
-              </button>
-            </Link>
-            <Link to="/cadastro">
-              <button
-                type="button"
-                className="bg-primary px-3.5 py-2.5 inline-flex items-center rounded-md
-            text-sm font-semibold text-gray-900 shadow-xs ring-inset hover:bg-accent"
-              >
-                <UserPlus size={20} weight="fill" className="mr-1.5" />
-                Cadastro de Usuários
-              </button>
-            </Link>
-          </div>
         </div>
-
-        {/* <div className="min-w-screen flex-1 flex justify-center hidden:sm-flex">
-          <img
-            src="https://i.imgur.com/esdZJ70.jpg"
-            alt="Imagem da Página Home"
-            className="w-auto h-[50vh]"
-          />
-        </div> */}
       </div>
-    </>
 
+
+
+    </div>
   );
 }
 
