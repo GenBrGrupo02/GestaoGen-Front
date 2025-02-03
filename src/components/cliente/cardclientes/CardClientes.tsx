@@ -1,11 +1,37 @@
+import { useState, useContext } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Cliente from "@/models/Cliente";
+import { AuthContext } from "@/contexts/AuthContext";
+import { atualizar } from "@/services/Service";
 
 interface ClienteCardProps {
   cliente: Cliente;
 }
 
 export default function ClienteCard({ cliente }: ClienteCardProps) {
+  const { usuario, handleLogout } = useContext(AuthContext);
+  const token = usuario.token;
+
+  const [status, setStatus] = useState(cliente.status);
+
+  const alterarStatus = async () => {
+    try {
+      const novoStatus = !status;
+
+      await atualizar(`/clientes/${cliente.id}`, { status: novoStatus }, () => {}, {
+        headers: { Authorization: token },
+      });
+      setStatus(novoStatus);
+      alert(`Status do cliente ${cliente.nome} alterado com sucesso!`);
+    } catch (error: any) {
+      if (error.toString().includes('403')) {
+        handleLogout();
+      } else {
+        alert('Erro ao alterar o status.');
+      }
+    }
+  };
+
   return (
     <Card className="w-full max-w-md shadow-lg border border-gray-300 rounded-lg">
       <CardHeader>
@@ -31,8 +57,8 @@ export default function ClienteCard({ cliente }: ClienteCardProps) {
         </p>
         <p className="text-gray-700">
           <strong>Status:</strong>{" "}
-          <span className={cliente.status ? "text-green-600" : "text-red-600"}>
-            {cliente.status ? "Ativo" : "Inativo"}
+          <span className={status ? "text-green-600" : "text-red-600"}>
+            {status ? "Ativo" : "Inativo"}
           </span>
         </p>
 
@@ -47,6 +73,13 @@ export default function ClienteCard({ cliente }: ClienteCardProps) {
             </p>
           </div>
         )}
+
+        <button
+          onClick={alterarStatus}
+          className="w-full mt-4 bg-primary hover:bg-secondary text-white font-semibold py-2 rounded-md transition"
+        >
+          Alterar Status
+        </button>
       </CardContent>
     </Card>
   );
