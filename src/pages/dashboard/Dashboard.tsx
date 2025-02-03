@@ -36,7 +36,7 @@ function Dashboard() {
               Clínica Gen - Rua Geração Brasil, 1500
             </div>
           </div>
-        </div>
+        
         <div className="mt-5 flex lg:mt-0 lg:ml-4 mr-12">
           <Link to="/clientes">
             <span className="hidden sm:block">
@@ -78,6 +78,14 @@ function Dashboard() {
               </span>
             </Link>
           </span>
+        </div>
+        </div>
+        <div className="flex justify-center ">
+          <img
+            src="https://i.imgur.com/esdZJ70.jpg"
+            alt="Imagem Página Dashboard"
+            className='w-auto'
+          />
         </div>
       </div>
     </>

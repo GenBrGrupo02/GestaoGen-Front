@@ -11,6 +11,7 @@ function FormCliente() {
 
     const [cliente, setCliente] = useState<Cliente>({} as Cliente)
     const [isLoading, setIsLoading] = useState<boolean>(false)
+    
 
     const { usuario, handleLogout } = useContext(AuthContext)
     const token = usuario.token
