@@ -114,6 +114,10 @@ function Consultas() {
             alert("Por favor, selecione ao menos uma consulta e um cliente.");
             return;
         }
+        if (selectedConsultas.length > 1) {
+            alert("Erro: Um cliente só pode estar vinculado a uma única consulta.");
+            return;
+        }
         vincularClientesAsConsultas(selectedConsultas, clienteId);
     };
 
