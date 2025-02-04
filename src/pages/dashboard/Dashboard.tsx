@@ -28,9 +28,6 @@ function Dashboard() {
           Bem-vindo de volta!
         </h1>
         <div>
-          <p className="mt-4 text-lg text-black">
-            Controle seus clientes e consultas com eficiência e segurança.
-          </p>
           <div className="flex flex-row gap-4 mt-6">
             <Link to="/clientes">
               <button className="flex items-center px-6 py-3 rounded-lg bg-base-200 text-black font-semibold shadow-lg hover:bg-accent transition">
