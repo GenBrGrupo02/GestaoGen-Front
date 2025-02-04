@@ -151,42 +151,42 @@ function Consultas() {
 
     return (
         <div className="container mx-auto">
-            <div className="flex justify-between items-center mb-4 my-4">
-    <h1 className="text-3xl font-bold">Consultas</h1>
+            <div className="flex justify-between items-center mb-4 my-4 mt-28">
+                <h1 className="text-3xl font-bold">Consultas</h1>
 
-    <div className="flex gap-4">
-        <button
-            onClick={handleVincularClientes}
-            className="bg-warning font-semibold text-base-content px-4 py-2 rounded-lg hover:bg-blue-800"
-        >
-            <UserList size={20} weight="fill" className="mr-1.5" /> Vincular Cliente à Consulta
-        </button>
+                <div className="flex gap-4">
+                    <button
+                        onClick={handleVincularClientes}
+                        className="bg-warning font-semibold text-base-content px-4 py-2 rounded-lg hover:bg-blue-800"
+                    >
+                        <UserList size={20} weight="fill" className="mr-1.5" /> Vincular Cliente à Consulta
+                    </button>
 
-        <button
-            onClick={handleRemoverCliente}
-            className="bg-error font-semibold text-base-content px-4 py-2 rounded-lg hover:bg-red-800"
-        >
-            <UserMinus size={20} weight="fill" className="mr-1.5" />
-            Remover Cliente das Consultas
-        </button>
+                    <button
+                        onClick={handleRemoverCliente}
+                        className="bg-error font-semibold text-base-content px-4 py-2 rounded-lg hover:bg-red-800"
+                    >
+                        <UserMinus size={20} weight="fill" className="mr-1.5" />
+                        Remover Cliente das Consultas
+                    </button>
 
-        <button
-            onClick={handleRemoverTodosClientes}
-            className="bg-error font-semibold text-base-content px-4 py-2 rounded-lg hover:bg-red-700"
-        >
-            <FolderMinus size={20} weight="fill" className="mr-1.5" />
-            Remover Todos os Clientes
-        </button>
+                    <button
+                        onClick={handleRemoverTodosClientes}
+                        className="bg-error font-semibold text-base-content px-4 py-2 rounded-lg hover:bg-red-700"
+                    >
+                        <FolderMinus size={20} weight="fill" className="mr-1.5" />
+                        Remover Todos os Clientes
+                    </button>
 
-        <button
-            onClick={() => navigate("/consultas/form")}
-            className="bg-info font-semibold text-base-content px-4 py-2 rounded-lg hover:bg-blue-800"
-        >
-            <FolderPlus size={20} weight="fill" className="mr-1.5" />
-            Nova Consulta
-        </button>
-    </div>
-</div>
+                    <button
+                        onClick={() => navigate("/consultas/form")}
+                        className="bg-info font-semibold text-base-content px-4 py-2 rounded-lg hover:bg-blue-800"
+                    >
+                        <FolderPlus size={20} weight="fill" className="mr-1.5" />
+                        Nova Consulta
+                    </button>
+                </div>
+            </div>
 
             <div className="p-4 bg-yellow-100 border border-yellow-500 rounded-lg mb-4">
                 <p className="text-yellow-800 font-semibold">
