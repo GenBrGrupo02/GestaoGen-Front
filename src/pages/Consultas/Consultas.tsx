@@ -6,6 +6,7 @@ import Consulta from "../../models/Consulta";
 import Cliente from "../../models/Cliente";
 import ConsultaCard from "@/components/consulta/cardconsultas/CardConsultas";
 import { ToastAlerta } from "@/utils/ToastAlerta";
+import { FolderMinus, FolderPlus, UserList, UserMinus } from "@phosphor-icons/react";
 
 function Consultas() {
     const navigate = useNavigate();
@@ -156,29 +157,32 @@ function Consultas() {
     <div className="flex gap-4">
         <button
             onClick={handleVincularClientes}
-            className="bg-warning text-base-content px-4 py-2 rounded-lg hover:bg-blue-800"
+            className="bg-warning font-semibold text-base-content px-4 py-2 rounded-lg hover:bg-blue-800"
         >
-            Vincular Cliente à Consulta
+            <UserList size={20} weight="fill" className="mr-1.5" /> Vincular Cliente à Consulta
         </button>
 
         <button
             onClick={handleRemoverCliente}
-            className="bg-error text-base-content px-4 py-2 rounded-lg hover:bg-red-800"
+            className="bg-error font-semibold text-base-content px-4 py-2 rounded-lg hover:bg-red-800"
         >
+            <UserMinus size={20} weight="fill" className="mr-1.5" />
             Remover Cliente das Consultas
         </button>
 
         <button
             onClick={handleRemoverTodosClientes}
-            className="bg-error text-base-content px-4 py-2 rounded-lg hover:bg-red-700"
+            className="bg-error font-semibold text-base-content px-4 py-2 rounded-lg hover:bg-red-700"
         >
+            <FolderMinus size={20} weight="fill" className="mr-1.5" />
             Remover Todos os Clientes
         </button>
 
         <button
             onClick={() => navigate("/consultas/form")}
-            className="bg-info text-base-content px-4 py-2 rounded-lg hover:bg-blue-800"
+            className="bg-info font-semibold text-base-content px-4 py-2 rounded-lg hover:bg-blue-800"
         >
+            <FolderPlus size={20} weight="fill" className="mr-1.5" />
             Nova Consulta
         </button>
     </div>

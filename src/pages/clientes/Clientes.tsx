@@ -5,7 +5,12 @@ import { UserPlus } from "@phosphor-icons/react"
 function Clientes() {
     return (
         <>
-            <div className="mt-5 flex lg:mt-10 lg:ml-10 mr-12">
+            <div className="container mx-auto">
+            <div className="flex justify-between items-center mb-4 my-4">
+    <h1 className="text-3xl font-bold">Clientes</h1>
+
+    <div className="flex gap-4">
+                
                 <Link to="/clientes/form">
                     <span className="hidden sm:block">
                         <button
@@ -18,6 +23,8 @@ function Clientes() {
                         </button>
                     </span>
                 </Link>
+                </div>
+                </div>
             </div>
             <ListaClientes />
         </>
