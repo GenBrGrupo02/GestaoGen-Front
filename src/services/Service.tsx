@@ -2,7 +2,7 @@ import axios from "axios"
 import Usuario from "../models/Usuario"
 
 const api =axios.create({
-    baseURL: 'https://gestaogen-back.onrender.com/'
+    baseURL: import.meta.env.VITE_API_URL
 })
 
 export const cadastrarUsuario = async (url: string, dados: Object, setDados: Function) => {
