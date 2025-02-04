@@ -152,19 +152,19 @@ function Consultas() {
     return (
         <div className="container mx-auto">
             <div className="flex justify-between items-center mb-4 my-4 mt-28">
-                <h1 className="text-3xl font-bold">Consultas</h1>
+                <h1 className="text-4xl font-bold">Consultas</h1>
 
                 <div className="flex gap-4">
                     <button
                         onClick={handleVincularClientes}
-                        className="bg-warning font-semibold text-base-content px-4 py-2 rounded-lg hover:bg-blue-800"
+                        className="flex items-center mr-1.5 px-3.5 py-2.5 rounded-md bg-accent text-black font-semibold shadow-lg hover:bg-info transition"
                     >
                         <UserList size={20} weight="fill" className="mr-1.5" /> Vincular Cliente à Consulta
                     </button>
 
                     <button
                         onClick={handleRemoverCliente}
-                        className="bg-error font-semibold text-base-content px-4 py-2 rounded-lg hover:bg-red-800"
+                        className="flex items-center mr-1.5 px-3.5 py-2.5 rounded-md bg-accent text-black font-semibold shadow-lg hover:bg-error transition"
                     >
                         <UserMinus size={20} weight="fill" className="mr-1.5" />
                         Remover Cliente das Consultas
@@ -172,7 +172,7 @@ function Consultas() {
 
                     <button
                         onClick={handleRemoverTodosClientes}
-                        className="bg-error font-semibold text-base-content px-4 py-2 rounded-lg hover:bg-red-700"
+                        className="flex items-center mr-1.5 px-3.5 py-2.5 rounded-md bg-accent text-black font-semibold shadow-lg hover:bg-error transition"
                     >
                         <FolderMinus size={20} weight="fill" className="mr-1.5" />
                         Remover Todos os Clientes
@@ -180,7 +180,7 @@ function Consultas() {
 
                     <button
                         onClick={() => navigate("/consultas/form")}
-                        className="bg-info font-semibold text-base-content px-4 py-2 rounded-lg hover:bg-blue-800"
+                        className="flex items-center mr-1.5 px-3.5 py-2.5 rounded-md bg-accent text-black font-semibold shadow-lg hover:bg-success transition"
                     >
                         <FolderPlus size={20} weight="fill" className="mr-1.5" />
                         Nova Consulta

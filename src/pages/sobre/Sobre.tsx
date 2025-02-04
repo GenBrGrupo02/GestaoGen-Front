@@ -78,13 +78,13 @@ function Sobre() {
     return (
         <>
             <div className="py-20 bg-base-300 m-32">
-                <h1 className="font-title text-4xl font-bold text-center text-gray-800 mb-12">Nossos Desenvolvedores</h1>
+                <h1 className="text-4xl font-bold text-center text-gray-800 mb-12">Nossos Desenvolvedores</h1>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-10 px-10">
                     {developers.map((dev, index) => (
                         <div key={index} className="flex flex-col items-center justify-between w-60 h-72 bg-base-100 rounded-xl shadow-lg hover:shadow-xl transition p-4 mx-auto">
                             <img className="h-28 w-28 object-cover rounded-full border-4 border-primary" src={dev.image} alt={dev.name} />
-                            <h2 className="font-title text-lg font-semibold">{dev.name}</h2>
+                            <h2 className="text-lg font-semibold">{dev.name}</h2>
                             <p className="text-sm text-primary font-medium">{dev.role}</p>
                             <button
                                 className="mt-2 px-4 py-2 bg-primary text-white rounded-lg shadow-md hover:bg-opacity-80 transition"
@@ -130,7 +130,7 @@ function Sobre() {
 
             <div className="hero bg-base-100 flex justify-between items-center max-lg:flex-col gap-10 w-full max-container p-16 min-h-screen">
                 <div className="flex flex-1 flex-col max-w-lg">
-                    <h2 className="font-title ml-20 text-4xl font-bold mb-4">Quem Somos <br /> <span className="text-accent">GestãoGen</span></h2>
+                    <h2 className="ml-20 text-4xl font-bold mb-4">Quem Somos <br /> <span className="text-accent">GestãoGen</span></h2>
                     <br />
                     <p className="font-body text-lg text-base-content ml-20">
                         A GestãoGen é uma equipe inovadora e comprometida em transformar ideias em soluções digitais eficientes. Combinamos habilidades técnicas e visão estratégica para entregar produtos e serviços que atendem às necessidades do mercado, sempre focando na excelência e no aprimoramento contínuo. Nosso objetivo é criar soluções funcionais, escaláveis e impactantes para nossos clientes.
