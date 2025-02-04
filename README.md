@@ -1,50 +1,93 @@
-# React + TypeScript + Vite
+# Gestão Gen
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Gestão Gen é a interface do CRM desenvolvido para empresas de odontologia B2B. Construído com React, Tailwind e Vite, o projeto visa fornecer uma experiência de usuário moderna, responsiva e intuitiva.
 
-Currently, two official plugins are available:
+## Tecnologias Utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React** - Biblioteca para construção de interfaces de usuário.
+- **Vite** - Ferramenta de build para desenvolvimento rápido.
+- **Tailwind CSS** - Framework CSS para estilização eficiente.
+- **PostgreSQL (Render)** - Banco de dados utilizado no backend.
+- **React Router** - Gerenciamento de rotas no frontend.
+- **Axios** - Requisições HTTP para comunicação com o backend.
+- **React Toastify** - Exibição de notificações amigáveis.
+- **Lucide React e Phosphor Icons** - Conjunto de ícones modernos e personalizáveis.
 
-## Expanding the ESLint configuration
+## Instalação e Execução
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/seu-usuario/gestaogen-front.git
+   cd gestaogen-front
+   ```
 
-- Configure the top-level `parserOptions` property like this:
+2. Instale as dependências:
+   ```bash
+   npm install
+   # ou
+   yarn install
+   ```
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+3. Inicie o ambiente de desenvolvimento:
+   ```bash
+   npm run dev
+   # ou
+   yarn dev
+   ```
+
+## Comandos Disponíveis
+
+- **`yarn dev`** - Inicia o servidor de desenvolvimento.
+- **`yarn`** - Compila o projeto para produção.
+
+## Estrutura do Projeto
+
+```
+/
+├── assets/        # Arquivos estáticos
+├── components/    # Componentes reutilizáveis
+├── contexts/      # Context API
+├── lib/           # Configurações e bibliotecas auxiliares
+├── models/        # Modelos de dados
+├── pages/         # Páginas do aplicativo
+├── services/      # Serviços e chamadas API
+├── utils/         # Funções auxiliares
+├── App.css        # Estilização global
+├── App.tsx        # Componente principal
+├── index.css      # Estilização global adicional
+├── main.tsx       # Ponto de entrada da aplicação
+├── vite-env.d.ts  # Configuração do ambiente Vite
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Autores
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+Este projeto foi desenvolvido com a colaboração dos seguintes autores:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+| ![Bruna Silva](https://github.com/BrunaSilva97.png) | ![Catharina Zagiacomo](https://github.com/czagiacomo.png) | ![Hector Silva](https://github.com/llordy12.png) | ![Lucas Henrique](https://github.com/luhendev.png) | ![Michele Bueno](https://github.com/spacemich.png) | ![Pedro Vieira](https://github.com/StPVieira.png) |
+|:--------------------------------------------------:|:-------------------------------------------------------:|:-------------------------------------------------:|:-------------------------------------------------:|:-------------------------------------------------:|:-------------------------------------------------:|
+| [Bruna Silva](https://github.com/BrunaSilva97)     | [Catharina Zagiacomo](https://github.com/czagiacomo)     | [Hector Silva](https://github.com/llordy12)       | [Lucas Henrique](https://github.com/luhendev)     | [Michele Bueno](https://github.com/spacemichv)     | [Pedro Vieira](https://github.com/StPVieira)      |
+
+## Escopo do Projeto
+[Link para o Escopo](https://docs.google.com/document/d/15xLgj84Bpg1j1XvxFg53dopA1h_MwwglsVfDqrMKThU/edit?usp=sharing)
+
+## Contribuição
+
+Contribuições são bem-vindas! Para contribuir:
+
+1. Faça um fork do repositório.
+2. Crie uma branch para sua feature ou correção: `git checkout -b minha-feature`
+3. Faça suas alterações e commit: `git commit -m "Minha nova feature"`
+4. Envie para o repositório: `git push origin minha-feature`
+5. Abra um Pull Request.
+
+## Licença
+
+Este projeto está sob a licença MIT. Para mais detalhes, consulte o arquivo `LICENSE`.
+
+---
+
+Caso tenha alguma dúvida ou sugestão, entre em contato! 🚀
+
+---
+
+
