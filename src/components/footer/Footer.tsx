@@ -1,4 +1,5 @@
 import { GithubLogo, InstagramLogo, XLogo } from '@phosphor-icons/react'
+import { Link } from 'react-router-dom'
 
 function Footer() {
 
@@ -13,7 +14,7 @@ function Footer() {
                             Contato
                         </h2>
                         <p className='text-gray-300'>
-                            São Paulo - SP <br /> +55 9999-9999 <br /> contato@gmail.com
+                            São Paulo - SP <br /> 9999-9999 <br /> contato@gmail.com
                         </p>
                     </div>
                     <div>
@@ -21,9 +22,9 @@ function Footer() {
                             Link Rápido
                         </h2>
                         <ul>
-                            <li><a href="#" className='hover:underline text-gray-300'>Home</a></li>
-                            <li><a href="#" className='hover:underline text-gray-300'>Sobre-nós</a></li>
-                            <li><a href="#" className='hover:underline text-gray-300'>Login</a></li>
+                            <li className='hover:underline text-gray-300'><Link to="/home" className="">Home</Link></li>
+                            <li className='hover:underline text-gray-300'><Link to="/home" className="">FAQ</Link></li>
+                            <li className='hover:underline text-gray-300'><Link to="/login" className="">Login</Link></li>
                         </ul>
                     </div>
                     <div>
@@ -31,9 +32,9 @@ function Footer() {
                             Redes Sociais
                         </h2>
                         <ul className='flex space-x-4'>
-                            <li><GithubLogo className='text-gray-300' size={20} /><a href="#" className='hover:underline text-gray-300'>GitHub</a></li>
-                            <li><XLogo className='text-gray-300' size={20} /><a href="#" className='hover:underline text-gray-300'>Twitter</a></li>
-                            <li><InstagramLogo className='text-gray-300' size={20} /><a href="#" className='hover:underline text-gray-300'>Instagram</a></li>
+                            <li><GithubLogo className='text-gray-300' size={20} /><a href="https://github.com/GenBrGrupo02/GestaoGen-Front" target='_blank' className='hover:underline text-gray-300'>GitHub</a></li>
+                            <li><XLogo className='text-gray-300' size={20} /><a href="https://x.com" target='_blank' className='hover:underline text-gray-300'>Twitter</a></li>
+                            <li><InstagramLogo className='text-gray-300' size={20} /><a href="https://instagram.com" target='_blank' className='hover:underline text-gray-300'>Instagram</a></li>
                         </ul>
                     </div>
                     
