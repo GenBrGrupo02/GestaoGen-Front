@@ -194,7 +194,7 @@ function Consultas() {
             <div className="flex mb-4 gap-4">
                 <button
                     onClick={handleVincularClientes}
-                    className="bg-info text-white px-4 py-2 rounded-lg hover:bg-blue-800"
+                    className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-800"
                 >
                     Vincular Cliente à Consulta
                 </button>
