@@ -127,7 +127,7 @@ function FormConsulta() {
                 </div>
                 <button
                     type='submit'
-                    className='rounded disabled:bg-slate-200 bg-amber-700 hover:bg-amber-950
+                    className='rounded disabled:bg-slate-200 bg-primary hover:bg-secondary
                                 text-white font-bold w-1/2 mx-auto py-2 flex justify-center'
                 >
                     {isLoading ? (
