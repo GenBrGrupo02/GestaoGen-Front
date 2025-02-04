@@ -1,5 +1,6 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
+import { Link } from "react-router-dom";
 
 function Home() {
 
@@ -8,6 +9,15 @@ function Home() {
     const toggleFAQ = (index: number) => {
         setActiveFAQ(activeFAQ === index ? null : index);
     };
+
+    useEffect(() => {
+            if (location.hash === "#faq"){
+                const faqElement = document.getElementById("faq");
+                if (faqElement) {
+                    faqElement.scrollIntoView({ behavior: "smooth"});
+                }
+            }
+        }, [location]);
 
     console.log(usuario.token)
 
@@ -27,9 +37,9 @@ function Home() {
                     <p className="mt-4 text-lg text-black">
                         Controle seus clientes, consultas com eficiência e segurança.
                     </p>
-                    <button className="mt-6 px-6 py-3 rounded-lg bg-base-200 text-black font-semibold shadow-lg hover:bg-accent transition">
+                    <Link to="/login"><button className="mt-6 px-6 py-3 rounded-lg bg-base-200 text-black font-semibold shadow-lg hover:bg-accent transition">
                         Comece Agora
-                    </button>
+                    </button></Link>
                 </div>
             </section>
 
@@ -126,7 +136,7 @@ function Home() {
                                 Mas o que de fato é o GestãoGen?
                             </button>
                             <div className={`text-gray-600 mt-2 ${activeFAQ === 2 ? 'block' : 'hidden'}`}>
-                                <p>O GestãoGen é um sistema de CRM interno que facilita o gerenciamento de clientes e consultas, organizando informações importantes e otimizando processos para aumentar a produtividade e o controle nas operações diárias. <a href="#"><span className="text-accent">Saiba mais!</span></a></p>
+                                <p>O GestãoGen é um sistema de CRM interno que facilita o gerenciamento de clientes e consultas, organizando informações importantes e otimizando processos para aumentar a produtividade e o controle nas operações diárias. <Link to="/sobre"><span className="text-accent">Sobre Nós</span></Link></p>
                             </div>
                         </div>
                     </div>
