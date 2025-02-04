@@ -2,70 +2,77 @@ import { Link, useNavigate } from "react-router-dom";
 import {
   AddressBookTabs,
   CalendarDots,
-  MapPin
+  MapPin,
+  UserPlus,
 } from "@phosphor-icons/react";
-import { useContext, useEffect} from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
+import "./Dashboard.css"; // ✅ Importação do CSS corrigida
 
 function Dashboard() {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+  const { usuario } = useContext(AuthContext);
 
-    const { usuario } = useContext(AuthContext);
-  
-    useEffect(() => {
-      if (usuario.token === "") {
-        alert("Você precisa estar logado");
-        navigate("/");
-      }
-    }, [usuario.token]);
+  useEffect(() => {
+    if (!usuario?.token) {
+      alert("Você precisa estar logado");
+      navigate("/");
+    }
+  }, [usuario?.token, navigate]);
 
   return (
-    <>
-      <div className="lg:flex lg:items-center lg:justify-between">
-        <div className="min-w-screen flex-1 m-12">
-          <h2 className=" text-2xl/7 font-bold text-yellow-500 sm:truncate sm:text-3xl sm:tracking-tight mb-12">
-            DASHBOARD DO MÉDICO
-          </h2>
-          <h2 className=" text-2xl/7 font-bold text-secondary sm:truncate sm:text-3xl sm:tracking-tight mb-2">
-            Bem vinde de volta!
-          </h2>
-          <div className="mt-1 flex flex-col sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6 mb-8">
-            <div className="mt-2 flex items-center text-sm text-neutral-content">
-              <MapPin size={20} weight="fill" className="mr-1.5" />
-              Clínica Gen - Rua Geração Brasil, 1500
-            </div>
-          </div>
-        </div>
-        <div className="mt-5 flex lg:mt-0 lg:ml-4 mr-12">
+    <div className="fundodash flex flex-col lg:flex-row-reverse items-center justify-between min-h-screen p-8">
+      
+      {/* Esquerda - Texto e Grade */}
+      <div className="lg:w-1/2 flex flex-col justify-center text-left">
+        
+        {/* Título */}
+        <h2 className="text-3xl font-bold text-yellow-500 mb-4">
+          DASHBOARD DO MÉDICO
+        </h2>
+        <h2 className="text-2xl font-semibold text-gray-700">
+          Bem-vindo de volta!
+        </h2>
+
+        {/* Grade para Botões e Localização */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
+          
+          {/* Botão Clientes */}
           <Link to="/clientes">
-            <span className="hidden sm:block">
-              <button
-                type="button"
-                className="mr-1.5 px-3.5 py-2.5 inline-flex items-center rounded-md  bg-yellow-500
-                text-sm font-semibold text-gray-900 shadow-xs ring-inset hover:bg-yellow-200"
-              >
-                <AddressBookTabs size={20} weight="fill" className="mr-1.5" />
-                Clientes
-              </button>
-            </span>
+            <button className="flex items-center px-4 py-2 bg-yellow-500 text-white text-sm font-semibold rounded-lg shadow-md hover:bg-yellow-600 transition">
+              <AddressBookTabs size={20} weight="fill" className="mr-2" />
+              Clientes
+            </button>
           </Link>
-          <span className="sm:ml-3">
-            <Link to="/consultas">
-              <span className="hidden sm:block">
-                <button
-                  type="button"
-                  className="mr-1.5 px-3.5 py-2.5 inline-flex items-center rounded-md  bg-info
-                text-sm font-semibold text-gray-900 shadow-xs ring-inset hover:bg-success"
-                >
-                  <CalendarDots size={20} weight="fill" className="mr-1.5" />
-                  Consultas
-                </button>
-              </span>
-            </Link>
-          </span>
+
+          {/* Botão Consultas */}
+          <Link to="/consultas">
+            <button className="flex items-center px-4 py-2 bg-blue-500 text-white text-sm font-semibold rounded-lg shadow-md hover:bg-blue-600 transition">
+              <CalendarDots size={20} weight="fill" className="mr-2" />
+              Consultas
+            </button>
+          </Link>
+
+          {/* Botão Cadastro */}
+          <Link to="/cadastro">
+            <button className="flex items-center px-4 py-2 bg-green-500 text-white text-sm font-semibold rounded-lg shadow-md hover:bg-green-600 transition">
+              <UserPlus size={20} weight="fill" className="mr-2" />
+              Cadastro de Usuários
+            </button>
+          </Link>
+
+          {/* Localização */}
+          <div className="flex items-center text-gray-600">
+            <MapPin size={20} weight="fill" className="mr-2 text-blue-500" />
+            Clínica Gen - Rua Geração Brasil, 1500
+          </div>
+
         </div>
       </div>
-    </>
+
+
+
+    </div>
   );
 }
 

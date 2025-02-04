@@ -2,7 +2,7 @@ import Consulta from "./Consulta";
 import Usuario from "./Usuario";
 
 export default interface Cliente {
-    id?: number;
+    id: number;
     nome: string;
     genero: string;
     idade: number;

@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import Cliente from "../../../models/Cliente";
 import ClienteCard from "../cardclientes/CardClientes";
 import { AuthContext } from "../../../contexts/AuthContext";
-import { DNA } from "react-loader-spinner";
 import { buscar } from "../../../services/Service";
 
 
@@ -42,14 +41,9 @@ function ListaClientes() {
     return (
         <>
             {clientes.length === 0 && (
-                <DNA
-                    visible={true}
-                    height="200"
-                    width="200"
-                    ariaLabel="dna-loading"
-                    wrapperStyle={{}}
-                    wrapperClass="dna-wrapper mx-auto"
-                />
+                <div className="flex items-center justify-center h-screen w-full">
+                <span className="loading loading-bars loading-md"></span>
+                </div>
             )}
             <div className="flex justify-center w-full my-4">
                 <div className="container flex flex-col">

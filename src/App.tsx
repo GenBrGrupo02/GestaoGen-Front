@@ -9,6 +9,9 @@ import Dashboard from "./pages/dashboard/Dashboard";
 import Clientes from "./pages/clientes/Clientes";
 import Consultas from "./pages/Consultas/Consultas";
 import Sobre from "./pages/sobre/Sobre";
+import FormConsulta from "./components/consulta/formconsulta/FormConsulta";
+import DeletarCliente from "./components/cliente/deletecliente/DeleteCliente";
+import FormCliente from "./components/cliente/formcliente/FormCliente";
 
 function App() {
 
@@ -25,8 +28,13 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/clientes" element={<Clientes />} />
+              <Route path="/clientes/form" element={<FormCliente />} />
+              <Route path="/deletarcliente/:id" element={<DeletarCliente />} />
               <Route path="/consultas" element={<Consultas />} />
+              <Route path="/consultas/form" element={<FormConsulta />} />
+              <Route path="/consultas/form/:id" element={<FormConsulta />} />
               <Route path="/sobre" element={<Sobre />} />
+              
             </Routes>
           </div>
           <Footer />
