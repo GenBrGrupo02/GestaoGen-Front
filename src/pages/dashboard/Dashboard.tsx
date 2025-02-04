@@ -8,6 +8,7 @@ import {
 import { useContext, useEffect } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
 import "./Dashboard.css"; 
+import { ToastAlerta } from "@/utils/ToastAlerta";
 
 function Dashboard() {
   const navigate = useNavigate();
