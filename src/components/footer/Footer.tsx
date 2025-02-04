@@ -25,7 +25,6 @@ function Footer() {
                             <FacebookLogo size={48} weight="bold" />
                         </a>
                     </div>
-                    
                 </div>
             </div>
         </>
