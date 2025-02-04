@@ -23,7 +23,7 @@ function Dashboard() {
 
   return (
     <div className="fundodash flex flex-col items-center justify-center min-h-screen p-8 bg-gray-100">
-      
+      <br />
       <div className="text-center  mb-8 w-full">
   <div className=" bg-[#2E3440] text-white py-9 shadow-lg w-full">
     <h2 className="text-5xl font-extrabold text-red-600">DASHBOARD DO MÉDICO</h2>

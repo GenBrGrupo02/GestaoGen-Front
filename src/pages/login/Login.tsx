@@ -35,9 +35,9 @@ function Login() {
     return (
         <div className="fundoLogin flex justify-center items-center h-screen w-full bg-[#2E3440]">
 
-            <div className="absolute inset-0 bg-black bg-opacity-20"></div>
-            <div className="absolute inset-0 bg-[#3B4252] bg-opacity-0"></div>
-            <form className="relative bg-[#434C5E] bg-opacity-80 p-8 rounded-lg shadow-xl w-[400px] flex flex-col gap-6 z-10"
+            <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+            <div className="absolute inset-0 bg-[#3B4252] bg-opacity-10"></div>
+            <form className="relative bg-[#434C5E] bg-opacity-75 p-8 rounded-lg shadow-xl w-[400px] flex flex-col gap-6 z-10"
                 onSubmit={login}>
 
                 <h2 className="text-[#c9dfe5] text-4xl font-bold text-center">LOGIN</h2>

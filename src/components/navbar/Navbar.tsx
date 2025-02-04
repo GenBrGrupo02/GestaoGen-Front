@@ -35,7 +35,7 @@ function Navbar() {
             <div className="relative flex max-w-screen-xl flex-col overflow-hidden px-4 py-4 md:mx-auto md:flex-row md:items-center">
                 <a href="#" className="gap-2 flex items-center whitespace-nowrap text-2xl font-black"><AddressBook size={32} weight="fill" />
                     <span className="text-black hover:text-accent">
-                        <Link to="/home" className="">GestãoGen/Odonto</Link></span>
+                        <Link to="/home" className=""> Gestão Gen | Odonto Brasil </Link></span>
                 </a>
                 <input type="checkbox" className="peer hidden" id="navbar-open" />
                 <label className="absolute top-5 right-7 cursor-pointer md:hidden" htmlFor="navbar-open">
