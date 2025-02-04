@@ -14,7 +14,7 @@ function Footer() {
                             Contato
                         </h2>
                         <p className='text-gray-300'>
-                            São Paulo - SP <br /> 9999-9999 <br /> contato@gmail.com
+                            São Paulo - SP <br /> 11991650885 <br /> genbr.grupo02.crm@gmail.com
                         </p>
                     </div>
                     <div>
