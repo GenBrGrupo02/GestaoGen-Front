@@ -32,7 +32,7 @@ Gestão Gen é a interface do CRM desenvolvido para empresas de odontologia B2B.
    ```bash
    npm run dev
    # ou
-   yarn dev
+   yarn
    ```
 
 ## Comandos Disponíveis
