@@ -94,7 +94,7 @@ function FormCliente() {
     }
 
     return (
-        <div className="container flex flex-col items-center justify-center mx-auto mt-28">
+        <div className=" container flex flex-col items-center justify-center mx-auto mt-28 fu">
             <h1 className="text-4xl text-center my-8">
                 {id === undefined ? 'Cadastrar Cliente' : 'Editar Cliente'}
             </h1>
@@ -157,8 +157,8 @@ function FormCliente() {
                     />
                 </div>
                 <button
-                    className="rounded text-slate-100 bg-amber-700 
-                                hover:bg-amber-950 w-1/2 py-2 mx-auto flex justify-center"
+                    className="rounded text-slate-100 bg-primary
+                                hover:bg-secondary w-1/2 py-2 mx-auto flex justify-center"
                     type="submit">
                     {isLoading ?
                         <RotatingLines
