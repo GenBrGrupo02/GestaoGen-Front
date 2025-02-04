@@ -1,34 +1,48 @@
-import { FacebookLogo, InstagramLogo, LinkedinLogo } from '@phosphor-icons/react';
-import { useState } from 'react';
+import { GithubLogo, InstagramLogo, XLogo } from '@phosphor-icons/react'
 
 function Footer() {
-    let data = new Date().getFullYear();
-    const [isOpen, setIsOpen] = useState(false);
-    
-  
+
+    let data = new Date().getFullYear()
 
     return (
         <>
-            <div data-theme="nord" className="flex flex-col bg-indigo-900 text-white">
-              
-                <div className="container flex flex-col items-center py-6">
-                    <p className="text-xl font-bold">Gestão Gen | Copyright: {data}</p>
-                    <p className="text-lg">Acesse nossas redes sociais</p>
-                    <div className="flex gap-4 mt-2">
-                        <a href="#" className="hover:text-gray-300">
-                            <LinkedinLogo size={48} weight="bold" />
-                        </a>
-                        <a href="#" className="hover:text-gray-300">
-                            <InstagramLogo size={48} weight="bold" />
-                        </a>
-                        <a href="#" className="hover:text-gray-300">
-                            <FacebookLogo size={48} weight="bold" />
-                        </a>
+            <footer className='bg-gray-800 px-4 md:px-16 lg:px-28 py-8'>
+                <div className='grid grid-cols-1 md:grid-cols-3'>
+                    <div>
+                        <h2 className='text-lg font-bold mb-4 text-white'>
+                            Contato
+                        </h2>
+                        <p className='text-gray-300'>
+                            São Paulo - SP <br /> +55 9999-9999 <br /> contato@gmail.com
+                        </p>
+                    </div>
+                    <div>
+                        <h2 className='text-lg font-bold mb-4 text-white'>
+                            Link Rápido
+                        </h2>
+                        <ul>
+                            <li><a href="#" className='hover:underline text-gray-300'>Home</a></li>
+                            <li><a href="#" className='hover:underline text-gray-300'>Sobre-nós</a></li>
+                            <li><a href="#" className='hover:underline text-gray-300'>Login</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2 className='text-lg font-bold mb-4 text-white'>
+                            Redes Sociais
+                        </h2>
+                        <ul className='flex space-x-4'>
+                            <li><GithubLogo className='text-gray-300' size={20} /><a href="#" className='hover:underline text-gray-300'>GitHub</a></li>
+                            <li><XLogo className='text-gray-300' size={20} /><a href="#" className='hover:underline text-gray-300'>Twitter</a></li>
+                            <li><InstagramLogo className='text-gray-300' size={20} /><a href="#" className='hover:underline text-gray-300'>Instagram</a></li>
+                        </ul>
                     </div>
                 </div>
-            </div>
+                <div className='border-t border-gray-400 p-6 text-gray-300 text-center mt-6'>
+                <p>&copy; {data} GestãoGen. Todos os direitos reservados.</p>
+                </div>
+            </footer>
         </>
-    );
+    )
 }
 
-export default Footer;
+export default Footer
