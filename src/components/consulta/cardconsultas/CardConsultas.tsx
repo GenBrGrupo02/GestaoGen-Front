@@ -19,7 +19,7 @@ export default function ConsultaCard({
   return (
     <Card className="w-full max-w-md shadow-lg border border-gray-300 rounded-lg">
       <CardHeader>
-        <CardTitle className="text-xl font-bold text-indigo-700">
+        <CardTitle className="text-xl font-bold text-primary">
           {consulta.nome}
         </CardTitle>
       </CardHeader>
@@ -44,7 +44,7 @@ export default function ConsultaCard({
         )}
         <div className="flex justify-end items-end pt-3">
           <Button
-            className="mt-auto self-end bg-blue-600 text-white hover:bg-blue-800"
+            className="mt-auto self-end bg-primary text-white hover:bg-secondary"
             onClick={() => navigate(`/consultas/form/${consulta.id}`)}
           >
             Editar

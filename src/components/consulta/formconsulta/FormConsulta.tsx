@@ -4,6 +4,7 @@ import Consulta from "../../../models/Consulta";
 import { RotatingLines } from "react-loader-spinner";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { buscar, atualizar, cadastrar } from "../../../services/Service";
+import { ToastAlerta } from "@/utils/ToastAlerta";
 
 function FormConsulta() {
 
@@ -29,7 +30,7 @@ function FormConsulta() {
 
     useEffect(() => {
         if (token === '') {
-            alert("Você precisa estar logado");
+            ToastAlerta("Você precisa estar logado","info");
             navigate('/');
         }
     }, [token]);
@@ -63,12 +64,12 @@ function FormConsulta() {
                     },
                 });
 
-                alert('Consulta atualizada com sucesso');
+                ToastAlerta('Consulta atualizada com sucesso',"sucesso");
             } catch (error: any) {
                 if (error.toString().includes('403')) {
                     handleLogout();
                 } else {
-                    alert('Erro ao atualizar a Consulta');
+                    ToastAlerta('Erro ao atualizar a Consulta',"erro");
                 }
             }
         } else {
@@ -79,12 +80,12 @@ function FormConsulta() {
                     },
                 });
 
-                alert('Consulta cadastrada com sucesso');
+                ToastAlerta('Consulta cadastrada com sucesso',"sucesso");
             } catch (error: any) {
                 if (error.toString().includes('403')) {
                     handleLogout();
                 } else {
-                    alert('Erro ao cadastrar a Consulta');
+                    ToastAlerta('Erro ao cadastrar a Consulta',"erro");
                 }
             }
         }

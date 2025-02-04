@@ -57,7 +57,7 @@
 
 //     useEffect(() => {
 //         if (token === '') {
-//             alert("Você precisa estar logado");
+//             ToastAlerta("Você precisa estar logado","info");
 //             navigate('/');
 //         }
 //     }, [token])
@@ -102,13 +102,13 @@
 //                     },
 //                 });
 
-//                 alert('Consulta atualizada com sucesso')
+//                 ToastAlerta('Consulta atualizada com sucesso',"sucesso")
 
 //             } catch (error: any) {
 //                 if (error.toString().includes('403')) {
 //                     handleLogout()
 //                 } else {
-//                     alert('Erro ao atualizar a Consulta')
+//                     ToastAlerta('Erro ao atualizar a Consulta',"erro")
 //                 }
 //             }
 
@@ -120,13 +120,13 @@
 //                     },
 //                 })
 
-//                 alert('Consulta cadastrada com sucesso');
+//                 ToastAlerta('Consulta cadastrada com sucesso',"sucesso");
 
 //             } catch (error: any) {
 //                 if (error.toString().includes('403')) {
 //                     handleLogout()
 //                 } else {
-//                     alert('Erro ao cadastrar a consulta');
+//                     ToastAlerta('Erro ao cadastrar a consulta',"erro");
 //                 }
 //             }
 //         }

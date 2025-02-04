@@ -7,6 +7,7 @@ import { PencilSimple, ToggleLeft, X } from "@phosphor-icons/react";
 import { Link } from "react-router-dom";
 import { Trash } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ToastAlerta } from "@/utils/ToastAlerta";
 
 interface ClienteCardProps {
   cliente: Cliente;
@@ -39,12 +40,12 @@ export default function ClienteCard({ cliente }: ClienteCardProps) {
         headers: { Authorization: token },
       });
       setStatus(novoStatus);
-      alert(`Status do cliente ${dadosCliente.nome} alterado com sucesso!`);
+      ToastAlerta(`Status do cliente ${dadosCliente.nome} alterado com sucesso!`, "sucesso");
     } catch (error: any) {
       if (error.toString().includes('403')) {
         handleLogout();
       } else {
-        alert('Erro ao alterar o status.');
+        ToastAlerta('Erro ao alterar o status.', "erro");
       }
     }
   };
@@ -58,13 +59,13 @@ export default function ClienteCard({ cliente }: ClienteCardProps) {
       await atualizar(`/clientes`, dadosCliente, () => { }, {
         headers: { Authorization: token },
       });
-      alert(`Paciente ${dadosCliente.nome} atualizado com sucesso!`);
+      ToastAlerta(`Paciente ${dadosCliente.nome} atualizado com sucesso!`, "sucesso");
       setEditando(false);
     } catch (error: any) {
       if (error.toString().includes("403")) {
         handleLogout();
       } else {
-        alert("Erro ao editar paciente.");
+        ToastAlerta("Erro ao editar paciente.", "erro");
       }
     }
   };

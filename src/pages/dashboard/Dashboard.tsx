@@ -8,6 +8,7 @@ import {
 import { useContext, useEffect } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
 import "./Dashboard.css"; // ✅ Importação do CSS corrigida
+import { ToastAlerta } from "@/utils/ToastAlerta";
 
 function Dashboard() {
   const navigate = useNavigate();
@@ -15,7 +16,7 @@ function Dashboard() {
 
   useEffect(() => {
     if (!usuario?.token) {
-      alert("Você precisa estar logado");
+      ToastAlerta("Você precisa estar logado","info");
       navigate("/");
     }
   }, [usuario?.token, navigate]);

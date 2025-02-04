@@ -4,6 +4,7 @@ import Cliente from "../../../models/Cliente";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { RotatingLines } from "react-loader-spinner";
 import { buscar, atualizar, cadastrar } from "../../../services/Service";
+import { ToastAlerta } from "@/utils/ToastAlerta";
 
 function FormCliente() {
 
@@ -32,7 +33,7 @@ function FormCliente() {
 
     useEffect(() => {
         if (token === '') {
-            alert("Você precisa estar logado!")
+            ToastAlerta("Você precisa estar logado!","info")
             navigate('/')
         }
     }, [token])
@@ -63,12 +64,12 @@ function FormCliente() {
                 await atualizar(`/clientes`, cliente, setCliente, {
                     headers: { 'Authorization': token }
                 })
-                alert("O Cliente foi atualizado com sucesso!")
+                ToastAlerta("O Cliente foi atualizado com sucesso!","sucesso")
             } catch (error: any) {
                 if (error.toString().includes('403')) {
                     handleLogout();
                 } else {
-                    alert("Erro ao atualizar o cliente.")
+                    ToastAlerta("Erro ao atualizar o cliente.","erro")
                 }
 
             }
@@ -77,12 +78,12 @@ function FormCliente() {
                 await cadastrar(`/clientes`, cliente, setCliente, {
                     headers: { 'Authorization': token }
                 })
-                alert("O Cliente foi cadastrado com sucesso!")
+                ToastAlerta("O Cliente foi cadastrado com sucesso!","sucesso")
             } catch (error: any) {
                 if (error.toString().includes('403')) {
                     handleLogout();
                 } else {
-                    alert("Erro ao cadastrar o cliente.")
+                    ToastAlerta("Erro ao cadastrar o cliente.","erro")
                 }
 
             }

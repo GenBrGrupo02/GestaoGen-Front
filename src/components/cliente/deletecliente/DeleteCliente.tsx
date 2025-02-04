@@ -5,6 +5,7 @@ import Cliente from "../../../models/Cliente";
 import { buscar, deletar } from "../../../services/Service";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ThumbsUp, XCircle } from "@phosphor-icons/react";
+import { ToastAlerta } from "@/utils/ToastAlerta";
 
 function DeletarCliente() {
     const navigate = useNavigate();
@@ -30,7 +31,7 @@ function DeletarCliente() {
 
     useEffect(() => {
         if (token === '') {
-            alert("Você precisa estar logado");
+            ToastAlerta("Você precisa estar logado", "info");
             navigate('/');
         }
     }, [token]);
@@ -49,12 +50,12 @@ function DeletarCliente() {
                     'Authorization': token
                 }
             });
-            alert("Cliente apagado com sucesso!");
+            ToastAlerta("Cliente apagado com sucesso!", "sucesso");
         } catch (error: any) {
             if (error.toString().includes('403')) {
                 handleLogout();
             } else {
-                alert("Erro ao deletar o cliente.");
+                ToastAlerta("Erro ao deletar o cliente.","erro");
             }
         }
         setIsLoading(false);

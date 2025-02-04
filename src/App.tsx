@@ -12,12 +12,15 @@ import Sobre from "./pages/sobre/Sobre";
 import FormConsulta from "./components/consulta/formconsulta/FormConsulta";
 import DeletarCliente from "./components/cliente/deletecliente/DeleteCliente";
 import FormCliente from "./components/cliente/formcliente/FormCliente";
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify";
 
 function App() {
 
   return (
     <>
       <AuthProvider>
+      <ToastContainer />
         <BrowserRouter>
           <Navbar />
           <div className="min-h-[80vh]">
