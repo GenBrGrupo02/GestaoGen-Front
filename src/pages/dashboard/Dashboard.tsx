@@ -7,7 +7,7 @@ import {
 } from "@phosphor-icons/react";
 import { useContext, useEffect } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
-import "./Dashboard.css"; // ✅ Importação do CSS corrigida
+import "./Dashboard.css"; 
 
 function Dashboard() {
   const navigate = useNavigate();
@@ -21,57 +21,51 @@ function Dashboard() {
   }, [usuario?.token, navigate]);
 
   return (
-    <div className="fundodash flex flex-col lg:flex-row-reverse items-center justify-between min-h-screen p-8">
+    <div className="fundodash flex flex-col items-center justify-center min-h-screen p-8 bg-gray-100">
       
-      {/* Esquerda - Texto e Grade */}
-      <div className="lg:w-1/2 flex flex-col justify-center text-left">
+      <div className="text-center  mb-8 w-full">
+  <div className=" bg-[#2E3440] text-white py-9 shadow-lg w-full">
+    <h2 className="text-5xl font-extrabold text-red-600">DASHBOARD DO MÉDICO</h2>
+  </div>
+  <h3 className="text-4xl font-semibold text-gray-800 mt-4">Bem-vindo de volta!</h3>
+</div>
+      
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-4xl">
         
-        {/* Título */}
-        <h2 className="text-3xl font-bold text-yellow-500 mb-4">
-          DASHBOARD DO MÉDICO
-        </h2>
-        <h2 className="text-2xl font-semibold text-gray-700">
-          Bem-vindo de volta!
-        </h2>
-
-        {/* Grade para Botões e Localização */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
-          
-          {/* Botão Clientes */}
+        <div className="bg-[#2E3440] text-white p-5 rounded-lg shadow-lg transition-transform hover:scale-105 flex justify-center">
           <Link to="/clientes">
-            <button className="flex items-center px-4 py-2 bg-yellow-500 text-white text-sm font-semibold rounded-lg shadow-md hover:bg-yellow-600 transition">
-              <AddressBookTabs size={20} weight="fill" className="mr-2" />
+            <button className="flex items-center px-6 py-6 bg-yellow-500 text-white text-lg font-semibold rounded-lg shadow-md hover:bg-yellow-600 transition">
+              <AddressBookTabs size={24} weight="fill" className="mr-3" />
               Clientes
             </button>
           </Link>
+        </div>
 
-          {/* Botão Consultas */}
+        <div className="bg-[#2E3440] text-white p-5 rounded-lg shadow-lg transition-transform hover:scale-105 flex justify-center">
           <Link to="/consultas">
-            <button className="flex items-center px-4 py-2 bg-blue-500 text-white text-sm font-semibold rounded-lg shadow-md hover:bg-blue-600 transition">
-              <CalendarDots size={20} weight="fill" className="mr-2" />
+            <button className="flex items-center px-6 py-6 bg-blue-500 text-white text-lg font-semibold rounded-lg shadow-md hover:bg-blue-600 transition">
+              <CalendarDots size={24} weight="fill" className="mr-3" />
               Consultas
             </button>
           </Link>
+        </div>
 
-          {/* Botão Cadastro */}
+        <div className="bg-[#2E3440] text-white p-5 rounded-lg shadow-lg transition-transform hover:scale-105 flex justify-center">
           <Link to="/cadastro">
-            <button className="flex items-center px-4 py-2 bg-green-500 text-white text-sm font-semibold rounded-lg shadow-md hover:bg-green-600 transition">
-              <UserPlus size={20} weight="fill" className="mr-2" />
+            <button className="flex items-center px-3 py-6 bg-green-500 text-white text-lg font-semibold rounded-lg shadow-md hover:bg-green-600 transition">
+              <UserPlus size={24} weight="fill" className="mr-3" />
               Cadastro de Usuários
             </button>
           </Link>
-
-          {/* Localização */}
-          <div className="flex items-center text-gray-600">
-            <MapPin size={20} weight="fill" className="mr-2 text-blue-500" />
-            Clínica Gen - Rua Geração Brasil, 1500
-          </div>
-
         </div>
       </div>
 
-
-
+      <div className="flex flex-col items-center justify-center text-gray-600 bg-[#2E3440] text-white p-5 rounded-lg shadow-lg mt-8 w-full max-w-4xl">
+        <div className="flex items-center mb-4">
+          <MapPin size={24} weight="fill" className="mr-3 text-blue-500" />
+          <span className="text-lg font-medium">Clínica Gen - Rua Geração Brasil, 1500</span>
+        </div>
+      </div>
     </div>
   );
 }

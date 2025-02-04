@@ -1,8 +1,14 @@
-.fundodash {
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 85%;
+
+  }.fundodash {
     background-image: url("https://i.imgur.com/esdZJ70.jpg");
-    background-size: cover; /* Faz a imagem cobrir toda a tela  "");*/
-    background-position: center; /* Centraliza a imagem */
-    background-repeat: no-repeat; /* Impede repetição */
-    min-height: 100vh; /* Garante que a tela inteira seja coberta */
-    width: 100%; /* Faz a imagem ocupar toda a largura */
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat; 
+    min-height: 80vh; 
+    width: 100%; 
 }

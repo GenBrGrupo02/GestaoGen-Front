@@ -36,6 +36,7 @@ function Footer() {
                             <li><InstagramLogo className='text-gray-300' size={20} /><a href="#" className='hover:underline text-gray-300'>Instagram</a></li>
                         </ul>
                     </div>
+                    
                 </div>
                 <div className='border-t border-gray-400 p-6 text-gray-300 text-center mt-6'>
                 <p>&copy; {data} GestãoGen. Todos os direitos reservados.</p>
