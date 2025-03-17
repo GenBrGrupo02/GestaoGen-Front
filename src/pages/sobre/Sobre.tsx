@@ -41,7 +41,7 @@ function Sobre() {
         {
             name: "Catharina",
             role: "Project Owner",
-            image: "https://i.ibb.co/tX2bM9y/cath.png",
+            image: "https://i.imgur.com/ngAGW2E.png",
             description: "Catharina atuou como PO, definindo prioridades e alinhando as necessidades do projeto com as expectativas dos usuários.",
             github: "https://github.com/czagiacomo",
             linkedin: "https://www.linkedin.com/in/czagiacomo/",
