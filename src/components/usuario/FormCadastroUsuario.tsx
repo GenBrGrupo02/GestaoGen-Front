@@ -121,6 +121,8 @@ function FormCadastroUsuario() {
                   />
                 </label>
               </div>
+            <>
+              {/* 
               <div className="flex flex-col w-full my-1">
                 <label className="input input-bordered flex items-center gap-2 input-md w-full">
                   <svg
@@ -148,8 +150,8 @@ function FormCadastroUsuario() {
                     }
                   />
                 </label>
-              </div>
-              <></>
+              </div>*/}
+            </>
               <div className="flex flex-col w-full my-1">
                 <label className="input input-bordered flex items-center gap-2 input-md w-full">
                   <svg
